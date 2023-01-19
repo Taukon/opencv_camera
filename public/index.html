@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>カメラ</title>
+</head>
+
+<body>
+
+    <p>カメラ</p>
+    <img id="screen" width="700" height="500"></script></img>
+
+    <script src="/socket.io/socket.io.js"></script>
+    
+
+    <script>
+
+        const socket = io();
+        const image = document.getElementById('screen');    
+
+        socket.on('screen', (dat) => {
+            //console.log('screen get')
+            if(image.src != dat){
+                image.src = dat;
+            }
+        });
+    </script>
+</body>
+
+</html>
